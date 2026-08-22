@@ -1,0 +1,19 @@
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+.env.production
+.env.development
+
+z_md_ignore
+z_md_ignore/
+/z_md_ignore/
+
+session_md
+session_md/
+
+.DS_Store
