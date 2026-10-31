@@ -7,6 +7,7 @@ import Settings from "./pages/Settings.tsx";
 import ShardPage from "./pages/ShardPage.tsx";
 import LoginPage from "./pages/LoginPage.tsx";
 import { SIZE_MAP } from "./types.ts";
+import { clearAuthSession, getTokenExpiry } from "./utils.ts";
 
 // Wraps any route that requires a logged-in user.
 // If no token in localStorage, redirects to /accounts/login.
@@ -24,6 +25,26 @@ function App() {
         // Adding accessibility toggle at main App controlled in Settings.
         if (localStorage.getItem('aalc-high-contrast') === 'true') document.body.classList.add('high-contrast');
         if (localStorage.getItem('aalc-reduce-motion') === 'true') document.body.classList.add('reduce-motion');
+    }, []);
+
+    useEffect(() => {
+        const token = localStorage.getItem("token");
+        if (!token) return;
+
+        const expiry = getTokenExpiry(token);
+
+        const signOut = () => {
+            clearAuthSession();
+            window.location.replace("/accounts/login");
+        };
+
+        if (expiry === null || expiry <= Date.now()) {
+            signOut();
+            return;
+        }
+
+        const timeoutId = window.setTimeout(signOut, expiry - Date.now());
+        return () => window.clearTimeout(timeoutId);
     }, []);
 
     return (

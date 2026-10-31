@@ -113,6 +113,7 @@ function AccountPanel() {
                     <span className="settings-row-label">Cannot change username</span>
                     <input
                         id="username-read-only"
+                        aria-label="Your username"
                         type="text"
                         value={username ?? ""}
                         className="settings-disabled-username"
@@ -372,6 +373,7 @@ function AccessibilityPanel() {
                     <div className="slider-container">
                         <input
                             type="range"
+                            aria-label="Volume slider"
                             min="0"
                             max="1"
                             step="0.01"

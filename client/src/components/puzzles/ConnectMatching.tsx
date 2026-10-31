@@ -79,10 +79,8 @@ function ConnectMatching({ onComplete, rewardsText }: Props) {
         const rRect = rightEl.getBoundingClientRect();
 
         return {
-            x1: lRect.right  - cRect.left,
-            y1: lRect.top    + lRect.height / 2 - cRect.top,
-            x2: rRect.left   - cRect.left,
-            y2: rRect.top    + rRect.height / 2 - cRect.top,
+            x1: lRect.right  - cRect.left, y1: lRect.top    + lRect.height / 2 - cRect.top,
+            x2: rRect.left   - cRect.left, y2: rRect.top    + rRect.height / 2 - cRect.top,
         };
     }, []);
 

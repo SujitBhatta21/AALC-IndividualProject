@@ -36,7 +36,6 @@ function OrderEventsChronological ({ onComplete, rewardsText }: OrderEventsProps
     );
 
     const handleSubmit: () => void = () => {
-        // Checking if user answer are filled with correct order.
         const correct = new Set(
             userAnswerOrder
                 .filter((event, index) => event.correctOrder === index + 1)
@@ -44,9 +43,7 @@ function OrderEventsChronological ({ onComplete, rewardsText }: OrderEventsProps
         )
         setLockedIds(correct);
 
-        if (correct.size === events.length) {
-            setSolved(true);
-        }
+        if (correct.size === events.length) setSolved(true);
     }
 
     const dragStartHandler = (e: React.DragEvent, index: number) => {

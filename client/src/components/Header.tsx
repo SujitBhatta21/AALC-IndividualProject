@@ -150,7 +150,7 @@ function Header() {
                                     <UserAvatar username={loggedInUser} />
                                     <p onClick={() => { setMenuOpen(false); }}> { loggedInUser } </p>
                                 </button>
-                                <button className="logout-btn" onClick={ handleLogoutOperation }><Link to='/'  />Logout</button>
+                                <button className="logout-btn" onClick={ handleLogoutOperation }>Logout</button>
                             </>
                         }
 
