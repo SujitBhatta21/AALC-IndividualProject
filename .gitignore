@@ -17,3 +17,7 @@ session_md
 session_md/
 
 .DS_Store
+.idea
+.idea/
+.vscode
+.vscode/
