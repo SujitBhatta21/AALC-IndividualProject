@@ -7,6 +7,29 @@ export function shuffle<T>(array: T[]): T[] {
     return array
 }
 
+export function clearAuthSession(): void {
+    localStorage.removeItem("token");
+    localStorage.removeItem("userId");
+    localStorage.removeItem("username");
+    localStorage.removeItem("role");
+}
+
+export function getTokenExpiry(token: string): number | null {
+    try {
+        const encodedPayload = token.split(".")[1]
+            .replace(/-/g, "+")
+            .replace(/_/g, "/");
+        const paddedPayload = encodedPayload.padEnd(
+            Math.ceil(encodedPayload.length / 4) * 4,
+            "="
+        );
+        const payload = JSON.parse(atob(paddedPayload));
+        return typeof payload.exp === "number" ? payload.exp * 1000 : null;
+    } catch {
+        return null;
+    }
+}
+
 
 // Central fetch wrapper — automatically attaches the JWT token if one is stored.
 // Useing this instead of raw fetch() for any API call that needs authentication.
@@ -24,7 +47,7 @@ export async function apiFetch(path: string, options: RequestInit = {}): Promise
     // BugFix: When session expired after 24 Hrs it was not removing token and User account render.
     // Fix: Sign user out and redirrect to login page if response status is not 200.
     if (response.status === 401 || response.status === 403) {
-        localStorage.removeItem("token");
+        clearAuthSession();
         window.location.href = "/accounts/login";
     }
     return response;

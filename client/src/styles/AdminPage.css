@@ -115,7 +115,7 @@
     font-size: 0.8rem;
     text-transform: uppercase;
     letter-spacing: 1px;
-    color: #888;
+    color: black;
     font-weight: 500;
 }
 
@@ -128,7 +128,7 @@
 
 .stat-card .stat-subvalue {
     font-size: 0.72rem;
-    color: #aaa;
+    color: black;
     font-weight: 400;
     line-height: 1.2;
 }
@@ -199,7 +199,7 @@
 
 .activity-time {
     margin-left: auto;
-    color: #aaa;
+    color: black;
     font-size: 0.8rem;
     white-space: nowrap;
 }
