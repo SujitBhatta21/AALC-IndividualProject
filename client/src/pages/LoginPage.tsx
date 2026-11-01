@@ -29,7 +29,7 @@ function LoginPage() {
   };
 
   useEffect(() => {
-    if (isRegisterMode) await fetchRandomUsername();
+    if (isRegisterMode) fetchRandomUsername();
     else setUsername(""); // Because username set to disabled during login mode.
   }, [isRegisterMode]);
 
