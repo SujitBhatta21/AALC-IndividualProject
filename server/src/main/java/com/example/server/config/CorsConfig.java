@@ -1,6 +1,5 @@
 package com.example.server.config;
 
-
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -15,11 +14,13 @@ import java.util.List;
 
 @Configuration
 public class CorsConfig {
-    @Value("${ALLOWED_ORIGINS:http://localhost:5173,https://antiapartheidlegacy.org.uk}")
+    @Value("${ALLOWED_ORIGINS:http://localhost:5173,https://game.antiapartheidlegacy.org.uk}")
     private String allowedOrigins;
 
-    // Spring Security 7's Customizer.withDefaults() requires this bean specifically.
-    // Without it, the Authorization header gets stripped by the browser on preflight.
+    // Spring Security 7's Customizer.withDefaults() requires this bean
+    // specifically.
+    // Without it, the Authorization header gets stripped by the browser on
+    // preflight.
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration config = new CorsConfiguration();
