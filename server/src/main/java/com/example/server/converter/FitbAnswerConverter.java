@@ -11,7 +11,8 @@ import java.util.List;
 import java.util.Map;
 
 
-// AI-generated (ChatGPT, [9 Feb, 2026]): [Boilerplate for AttributeConverter with 2 override methods generated automatically. Modified for my requirement ]
+// AI-generated (ChatGPT, [9 Feb, 2026]): [Boilerplate for AttributeConverter with 2 override methods
+// generated automatically. Modified for my requirement ]
 @Converter
 public class FitbAnswerConverter implements AttributeConverter<Map<Integer, List<String>>, String> {
 
