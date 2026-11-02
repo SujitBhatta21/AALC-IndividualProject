@@ -8,7 +8,6 @@ import com.example.server.repository.ReportRepository;
 import com.example.server.repository.ShardRepository;
 import com.example.server.repository.UserRepository;
 import com.example.server.repository.UserShardProgressRepository;
-import com.example.server.service.UserService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.security.crypto.password.PasswordEncoder;
